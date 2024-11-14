@@ -1,0 +1,8 @@
+# Ignore the virtual environment and cache
+venv/
+__pycache__/
+*.pyc
+.venv/
+
+# Ignore environment files (unless you need them in the container)
+.env
