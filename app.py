@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from typing import Optional
 from dotenv import load_dotenv
 from supabase import create_client, Client
+from fastapi.responses import JSONResponse
 
 load_dotenv()
 # Initialize FastAPI app
@@ -77,3 +78,8 @@ def modify_item(item_id: str, item: Item):
 @app.get("/")
 def read_root():
     return {"message": "Welcome to the Editable Item List API"}
+
+@app.get("/health")
+def health_check():
+    # Here, you can include more checks like database connectivity or external services.
+    return JSONResponse(content={"status": "OK"}, status_code=200)
