@@ -73,13 +73,3 @@ def modify_item(item_id: str, item: Item):
         updated_item = response.data[0]
         return Item(**updated_item)
     raise HTTPException(status_code=500, detail="Failed to update item")
-
-# Root endpoint
-@app.get("/")
-def read_root():
-    return {"message": "Welcome to the Editable Item List API"}
-
-@app.get("/health")
-def health_check():
-    # Here, you can include more checks like database connectivity or external services.
-    return JSONResponse(content={"status": "OK"}, status_code=200)
